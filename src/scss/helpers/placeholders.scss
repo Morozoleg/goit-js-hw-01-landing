@@ -1,0 +1,23 @@
+%block {
+  display: block;
+}
+
+%flex {
+  display: flex;
+}
+
+%btn {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: none;
+}
+
+%link {
+  display: block;
+  text-decoration: none;
+}
+
+%auto {
+  margin: 0 auto;
+}
