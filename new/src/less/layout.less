@@ -1,0 +1,48 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: @open-sans, Tahoma,Arial, sans-serif;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+}
+
+canvas {
+  display: block;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  main {
+    flex: 1;
+  }
+}
+
+.main-content {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .App {
+    max-width: 1680px;
+    width: 90%;
+    margin: 0 auto;
+  }
+}

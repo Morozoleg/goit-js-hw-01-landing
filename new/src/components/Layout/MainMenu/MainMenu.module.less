@@ -1,0 +1,281 @@
+@import (reference) "../../../less/fonts";
+@import (reference) "../../../less/glitch";
+
+@grey: #3c3c3c;
+@transition-duration: 0.5s;
+
+.mainMenuLinks,
+.mainMenuFooter {
+  transition: 0.4s;
+}
+
+.navLink {
+  counter-increment: nav-counter;
+  text-align: center;
+
+  &::before {
+    content: counters(nav-counter, ".", decimal-leading-zero);
+    font-weight: 800;
+    display: block;
+    font-size: 45px;
+    overflow: hidden;
+    height: 38px;
+    color: @grey;
+  }
+
+  a {
+    display: block;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: @oswald;
+    font-size: 20px;
+    text-align: center;
+    .glitch-hover(span);
+  }
+}
+
+.mainMenu {
+  transition: @transition-duration;
+  opacity: 0;
+  z-index: -1;
+  background-image: url("../../../assets/images/nav_moby.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+
+  &.open {
+    opacity: 1;
+    z-index: 10;
+    transition: opacity @transition-duration;
+  }
+
+  .socialLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      margin: 0 10px;
+      color: @grey;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .mailLink {
+    text-align: center;
+
+    svg {
+      vertical-align: middle;
+    }
+
+    span {
+      margin: 0 10px;
+      display: inline-block;
+      color: #757778;
+    }
+  }
+}
+
+.mainMenuFooter {
+  border-top: 1px solid @grey;
+  padding: 15px 0;
+  color: #fff;
+  font-size: 13px;
+}
+
+.mainMenuLinks {
+  flex: 1;
+  counter-reset: nav-counter;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.langSelector {
+  position: absolute;
+  right: 15px;
+  top: 55px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: #626262;
+
+    &.activeLang,
+    &:active,
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  color: #fff;
+  right: 15px;
+  top: 25px;
+  font-size: 20px;
+  width: 22px;
+}
+
+@media (max-width: 767px) {
+  .mainMenu:global(.overlay) {
+    position: fixed;
+  }
+}
+
+@media (min-width: 375px) {
+  .navLink {
+    &::before {
+      font-size: 55px;
+      height: 45px;
+    }
+
+    a {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navLink {
+    &::before {
+      font-size: 100px;
+      height: 85px;
+    }
+  }
+
+  .langSelector,
+  .close {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mainMenuLinks {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    height: 100%;
+  }
+
+  .navLink {
+    flex: 1;
+    position: relative;
+    border-right: 1px solid @grey;
+
+    &::before {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(50% - 118px);
+      line-height: 300px;
+    }
+
+    a {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      position: relative;
+
+      span {
+        height: 35px;
+        line-height: 4;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .mainMenu {
+    background-image: url("../../../assets/images/mainMenu_bg.jpg");
+    &.open {
+      animation: shutters 0.5s;
+      .navLink {
+        &::before {
+          line-height: 140px;
+          transition: 0.5s ease-in-out 0.3s;
+        }
+
+        span {
+          line-height: 1;
+          transition: 0.4s ease-in 0.3s;
+        }
+      }
+    }
+  }
+
+  .mainMenuFooter {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border: 0;
+  }
+}
+
+@keyframes shutters {
+  from {
+    clip-path: polygon(
+      0% 0%,
+      0% 100%,
+      0% 100%,
+      0% 0,
+      20% 0,
+      20% 100%,
+      20% 100%,
+      20% 0,
+      40% 0,
+      40% 100%,
+      40% 100%,
+      40% 0,
+      60% 0,
+      60% 100%,
+      60% 100%,
+      60% 0,
+      80% 0,
+      80% 100%,
+      80% 100%,
+      80% 0
+    );
+  }
+
+  to {
+    clip-path: polygon(
+      0% 0%,
+      0% 100%,
+      20% 100%,
+      20% 0,
+      20% 0,
+      20% 100%,
+      40% 100%,
+      40% 0,
+      40% 0,
+      40% 100%,
+      60% 100%,
+      60% 0,
+      60% 0,
+      60% 100%,
+      80% 100%,
+      80% 0,
+      80% 0,
+      80% 100%,
+      100% 100%,
+      100% 0
+    );
+  }
+}

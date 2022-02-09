@@ -1,0 +1,174 @@
+@import (reference) "../../../../less/fonts";
+
+.desktopHorizontal {
+  height: 100%;
+  background-color: #f7f7f7;
+  background-image: linear-gradient(10deg, #d4e8f0 0%, #d4e8f0 1%, #ebf0f2 100%);
+  .arr {
+    width: 13px;
+    position: absolute;
+    bottom: 15px;
+    cursor: pointer;
+
+    line {
+      stroke: #000000;
+    }
+  }
+  .next {
+    right: 40px;
+    transform: rotate(90deg);
+  }
+  .prev {
+    left: 40px;
+    transform: rotate(-90deg);
+  }
+
+  :global(.slick-slide) {
+    .slide {
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    &:nth-child(even) .slide {
+      .image {
+        order: 1;
+        margin-bottom: 0;
+        margin-top: 38px;
+      }
+    }
+
+    .slide {
+      &:not(:hover) {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.slide {
+  font-family: @open-sans;
+  font-weight: 700;
+  display: flex !important;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100%;
+  padding: 0 30px;
+  transition: 0.5s;
+  h2 {
+    flex-grow: 0;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 45px;
+    text-align: left;
+    width: 100%;
+  }
+  .bodycon{
+    float: left;
+    width: 100%;
+    max-height: 0;
+    padding-top: 0;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 23px;
+    text-align: left;
+    overflow: hidden;
+    transition: 1.5s;
+  }
+  &:hover{
+    .bodycon{
+      max-height: 122px;
+      padding-top: 30px;
+    }
+  }
+}
+
+.slideLink {
+  height: 100%;
+  position: relative;
+  .hoveritem{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: 1.5s;
+  }
+  &:hover{
+    .hoveritem{
+      opacity: 1;
+    }
+  }
+
+  //.1 {
+  //  &:hover {
+  //    background-color: violet;
+  //  }
+  //}
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  max-height: 50vh;
+  margin-bottom: 38px;
+  box-shadow: 14px 17px 32px rgba(34, 34, 34, 0.29);
+  display: flex;
+  justify-content: center;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &>div{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .image {
+    height: 65%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .desktopHorizontal {
+    width: 120%;
+  }
+
+  .slide {
+    h2 {
+      font-size: 40px;
+    }
+  }
+}
+:global(.Apple.Pay.Oschadbank) .image>div {
+  background-position: bottom center;
+}
+:global(.MONOBANK) .image:before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to top, #ebd8fd 0%, #d9feee 55%, #f3ffdc 81%, #f3ffdc 100%);
+}

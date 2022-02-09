@@ -1,0 +1,106 @@
+@import (reference) "../../../less/fonts";
+@import (reference) "../../../less/colors";
+@bg-gradient: linear-gradient(10deg, #d3e7f0 1%, #ebeff1 100%);
+
+.container {
+  width: 280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+.button {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 600;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+.wrapper {
+  background: @bg-gradient;
+  height: 100%;
+}
+
+.technologyList {
+  display: flex;
+  flex-direction: column;
+}
+
+.technology {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+.obj {
+  margin-bottom: 20px;
+  filter: grayscale(1) contrast(135%) invert(0.5) brightness(0.1);
+  transition: all 0.2s linear;
+
+  &:hover {
+    filter: none;
+  }
+}
+
+.obj svg style {
+  fill: black;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    background: none;
+  }
+  .container {
+    width: 100%;
+    background: @bg-gradient;
+  }
+  .technologyList {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .technology {
+    width: 320px;
+    margin-bottom: 0;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  .title {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .technology {
+    width: 435px;
+    height: 470px;
+    padding: 80px;
+  }
+  .title {
+    margin-bottom: 20px;
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .title {
+    margin-bottom: 60px;
+  }
+}

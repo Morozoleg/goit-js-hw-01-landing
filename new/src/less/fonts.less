@@ -1,0 +1,23 @@
+@font-path: "../assets/fonts";
+
+.font-face(@name, @font-name, @weight, @style: normal) {
+  @local-name: replace(@font-name, " ", "-");
+  @font-face {
+    font-family: @name;
+    src: url("@{font-path}/@{font-name}.eot");
+    src: local(@local-name), local(@font-name),
+      url("@{font-path}/@{font-name}.eot?#iefix") format("embedded-opentype"),
+      url("@{font-path}/@{font-name}.woff") format("woff"),
+      url("@{font-path}/@{font-name}.ttf") format("truetype");
+    font-weight: @weight;
+    font-style: @style;
+  }
+}
+
+@open-sans: "Open Sans", sans-serif;
+@oswald: "Oswald";
+
+.font-face(@open-sans, "OpenSans-Regular", normal);
+.font-face(@open-sans, "OpenSans-Bold", 700);
+.font-face(@open-sans, "OpenSans-ExtraBold", 800);
+.font-face(@oswald, "Oswald-Medium", 500);

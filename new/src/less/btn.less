@@ -1,0 +1,53 @@
+@colors: {
+  light: #fff #000 fade(#fff, 70%);
+  dark: #000 #fff fade(#000, 70%);
+  portfolio: #262727 #fff fade(#262727, 70%);
+}
+
+.btn {
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  text-transform: uppercase;
+  height: 45px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: @open-sans;
+  transition:  0.3s;
+  padding: 0 20px;
+}
+
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coloredBtn(@colors) {
+  each(@colors, {
+    @bd-color: extract(@value, 1);
+    @color: extract(@value, 2);
+    @disabled: extract(@value, 3);
+    .btn-@{key} {
+      border-color: @bd-color;
+      color: @bd-color;
+
+      &:hover,
+      &:active,
+      &:focus {
+        &:not(:disabled) {
+          background-color: @bd-color;
+          color: @color;
+        }
+      }
+
+      &:disabled {
+        border-color: @disabled;
+        color: @disabled;
+        cursor: not-allowed;
+      }
+    }
+  })
+}
+
+.coloredBtn(@colors);

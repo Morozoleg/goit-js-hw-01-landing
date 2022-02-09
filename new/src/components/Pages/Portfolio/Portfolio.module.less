@@ -1,0 +1,73 @@
+@import (reference) "../../../less/fonts";
+
+@main: #ebf0f3;
+@light-grey: #3e3e3e;
+
+.portfolio {
+  background-color: @main;
+}
+
+.viewToggle {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .portfolio {
+    background-color: transparent;
+
+    div {
+      outline: none;
+    }
+  }
+
+  .viewToggle {
+    position: absolute;
+    right: 40px;
+    top: 30px;
+    display: flex;
+
+    @lightened: lighten(@light-grey, 15%);
+
+    button {
+      width: 22px;
+      height: 22px;
+      border-style: solid;
+      border-width: 2px;
+      padding: 2px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      border-color: @lightened;
+
+      span {
+        background-color: @lightened;
+        display: block;
+      }
+
+      &.inline {
+        margin-right: 2px;
+        span {
+          width: 5px;
+          height: 5px;
+          margin: 1px;
+        }
+      }
+
+      &.vertical {
+        span {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      &.active {
+        border-color: #3d3d3d;
+
+        span {
+          background-color: #3d3d3d;
+        }
+      }
+    }
+  }
+}

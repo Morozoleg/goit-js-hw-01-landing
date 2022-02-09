@@ -1,0 +1,84 @@
+@import (reference) "../../../../less/utility";
+
+@main: #ebf0f3;
+:global(.hide) {
+  display: none;
+}
+.hide{
+  display: none;
+}
+.portfolioMobile{
+  .container {
+    padding: 0;
+    ul {
+      .portfolioItem {
+        margin-bottom: 60px;
+        .previewImg {
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: relative;
+          display: flex;
+          margin-left: 20px;
+          margin-right: 20px;
+          img{
+            max-height: 100%;
+            object-fit: contain;
+            margin: 0 auto;
+            max-width: 100%;
+          }
+          span {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #fff;
+            width: 8%;
+            height: 8%;
+            background-color: fade(#000, 30%);
+            font-size: 3vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        h2 {
+          font-size: 34px;
+          font-weight: 600;
+          padding: 20px 20px;
+          position: relative;
+          overflow: hidden;
+          margin-top: 23px;
+          span {
+            position: relative;
+            z-index: 1;
+          }
+          &::before {
+            content: attr(data-title);
+            opacity: 0.15;
+            text-transform: uppercase;
+            transform: translateY(-50%);
+            top: 50%;
+            position: absolute;
+            white-space: nowrap;
+            left: -20%;
+            font-size: 88px;
+            .stroked-text(@main, red);
+          }
+        }
+      }
+    }
+    p{
+      display: flex;
+      justify-content: center;
+      a{
+        margin-bottom: 35px;
+        padding-left: 45px;
+        background-image: url(../../../../assets/images/undo-arrow.svg);
+        background-position: left 20px center;
+        background-repeat: no-repeat;
+        background-size: 15px;
+        transition: 0.3s;
+      }
+    }
+  }
+}

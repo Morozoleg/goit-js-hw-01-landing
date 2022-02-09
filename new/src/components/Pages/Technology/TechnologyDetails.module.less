@@ -1,0 +1,343 @@
+@import (reference) "../../../less/fonts";
+@import (reference) "../../../less/colors";
+@bg-gradient: linear-gradient(10deg, #d3e7f0 1%, #ebeff1 100%);
+.wrapper {
+  background: @bg-gradient;
+  height: 100%;
+}
+.container {
+  width: 280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.title {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+.obj {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  filter: grayscale(1) contrast(135%) invert(0.5) brightness(0.1);
+  transition: all 0.2s linear;
+
+  &:hover {
+    filter: none;
+  }
+}
+.paragraph {
+  margin-bottom: 20px;
+}
+.link {
+  order: 2;
+  text-align: center;
+  opacity: 0.4;
+  margin-bottom: 10px;
+
+  a {
+    font-family: @oswald;
+    text-transform: uppercase;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s linear;
+}
+.top {
+  opacity: 1;
+  position: relative;
+  order: 1;
+}
+.btnNav {
+  margin-left: auto;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  transform: rotate(90deg);
+  right: 40px;
+  top: 0;
+  background-image: url(../../../assets/images/arrow.svg);
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+
+.activeBtn {
+  transform: rotate(270deg);
+}
+
+.open {
+  height: 60px;
+}
+@media (min-width: 768px) {
+  .wrapper {
+    background: none;
+  }
+  .container {
+    width: 100%;
+    background: @bg-gradient;
+  }
+  .title {
+    font-size: 30px;
+    text-align: center;
+  }
+  .nav {
+    display: none;
+  }
+  .paragraph {
+    padding: 0 50px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .title {
+    margin-bottom: 20px;
+    font-size: 35px;
+    text-align: left;
+  }
+  .contentWrapper {
+    display: flex;
+    height: 100%;
+    align-content: center;
+    padding-left: 50px;
+  }
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 65%;
+    .paragraph {
+      padding: 0;
+      width: 97%;
+      font-size: 16px;
+      line-height: 1.5em;
+    }
+    .paragraphWrapper {
+      height: 30vh;
+    }
+  }
+  .obj {
+    width: 300px;
+    margin: 0;
+    margin-right: 50px;
+  }
+}
+
+// form
+@media (min-width: 1920px) {
+  .title {
+    margin-bottom: 60px;
+  }
+}
+
+.keyframes(@name; @arguments) {
+  @-moz-keyframes @name {
+    @arguments();
+  }
+  @-webkit-keyframes @name {
+    @arguments();
+  }
+  @keyframes @name {
+    @arguments();
+  }
+}
+.animation(@arguments) {
+  -webkit-animation: @arguments;
+  -moz-animation: @arguments;
+  animation: @arguments;
+}
+
+.slideWrapper {
+  display: block;
+}
+
+.containerForm {
+  width: 290px;
+  margin: 0 auto;
+}
+
+.renderTime {
+  display: none;
+}
+
+.formWrapper {
+  border-top: 1px solid white;
+  //   height: 100%;
+  padding: 45px 0;
+
+  .btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 50px;
+    border: 1px solid black;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+}
+
+.active {
+  display: block;
+  height: auto;
+}
+
+.form {
+  display: none;
+}
+
+.animationWrapper {
+  .btn {
+    .animation(fade-in 0.6s linear);
+    animation-fill-mode: forwards;
+  }
+  .form {
+    display: block;
+    input {
+      &::placeholder {
+        padding-left: 10px;
+        color: rgb(124, 124, 124);
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.keyframes(fade-in;{
+      0% {
+        background-color: none;
+        color: black;
+         }
+      100% {
+        background-color: black;
+        color: white
+       }
+      });
+@media (min-width: 1280px) {
+  .keyframes(fade-in;{
+        0% {
+          transform: scale(1, 1);
+           }
+           20% {
+            transform: scale(1, 0.01)
+           }
+        100% {
+          transform: scale(3, 0.00001);
+          visibility: hidden;
+         }
+        });
+
+  .containerForm {
+    width: 100%;
+  }
+  .formWrapper {
+    padding: 56px 0;
+    position: relative;
+    .btn {
+      margin-bottom: 0;
+    }
+  }
+  .animationWrapper {
+    .form {
+      visibility: hidden;
+      position: absolute;
+      top: 66px;
+      left: 50%;
+      .animation(fill-in 0.3s linear);
+      animation-delay: 0.6s;
+      animation-fill-mode: forwards;
+      // transform: translate(-50%, 0) scale(1, 0.00001);
+      max-width: fit-content;
+      margin: 0 auto;
+      form {
+        display: flex;
+        button {
+          height: 38.5px;
+          margin-bottom: 0;
+        }
+        input {
+          border: 1px solid #000000;
+          border-right: 0;
+
+          span {
+            top: 12px;
+          }
+        }
+      }
+      div {
+        display: flex;
+        margin-bottom: 0;
+      }
+      fieldset {
+        position: relative;
+        width: 212px;
+        height: fit-content;
+        margin-bottom: 0;
+        span {
+          left: 0;
+        }
+      }
+    }
+  }
+  .keyframes(fill-in;{
+        0% {
+          color: transparent;
+          visibility: visible;
+          transform: translate(-50%, 0) scale(1, 0.00001)
+           }
+           
+        70% {
+          color: transparent;
+          transform: translate(-50%, 0) scale(1, 1);
+          visibility: visible;
+         }
+         100% {
+           color: black;
+          transform: translate(-50%, 0) scale(1, 1);
+          visibility: visible;
+         }
+        });
+}
+
+@media (min-width: 1440px) {
+  .formWrapper {
+    padding: 63px 0;
+  }
+}
+
+@media (min-width: 1920px) {
+  .keyframes(fade-in;{
+        0% {
+          transform: scale(1, 1);
+           }
+           20% {
+            transform: scale(1, 0.01)
+           }
+        100% {
+          transform: scale(4, 0.00001);
+          visibility: hidden;
+         }
+        });
+  .formWrapper {
+    padding: 86px 0;
+  }
+  .animationWrapper {
+    .form {
+      top: 89px;
+      fieldset {
+        width: 300px;
+      }
+    }
+  }
+}

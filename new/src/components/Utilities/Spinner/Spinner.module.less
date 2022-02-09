@@ -1,0 +1,22 @@
+@keyframes load3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@white-tr: rgba(255, 255, 255, 0.3);
+
+.loader {
+  margin: auto;
+  border-radius: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ffffff @white-tr @white-tr;
+  width: 7em;
+  height: 7em;
+  text-indent: -9999px;
+  animation: load3 1.4s infinite linear;
+}

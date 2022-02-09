@@ -1,0 +1,93 @@
+@import (reference) "../../../../less/fonts";
+@import "../../../../less/colors";
+
+.navToggleButton {
+  width: 17px;
+  height: 17px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  display: block;
+
+  .navToggleBurger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 17px;
+    background: #000;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 1px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 7px;
+    }
+
+    &:nth-child(4) {
+      top: 13px;
+    }
+  }
+
+  &.open {
+    .navToggleBurger {
+      span {
+        &:nth-child(1) {
+          top: 8px;
+          width: 0;
+          left: 50%;
+        }
+
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(4) {
+          top: 8px;
+          width: 0;
+          left: 50%;
+        }
+      }
+    }
+  }
+}
+
+.navToggleMenuStatus {
+  text-transform: uppercase;
+  border-left: 1px solid @grey;
+  margin-left: 35px;
+  padding-left: 15px;
+  height: 17px;
+  display: none;
+  color: @grey;
+  font-family: @open-sans;
+  font-weight: 600;
+  width: 0;
+}
+
+@media (min-width: 768px) {
+  .navToggleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .navToggleMenuStatus {
+    display: block;
+    font-size: 16px;
+    height: 22px;
+  }
+
+  .navToggleBurger {
+    margin-top: -2px;
+  }
+}

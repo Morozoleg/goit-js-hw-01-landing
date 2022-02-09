@@ -1,0 +1,151 @@
+@import (reference) "../../../less/fonts";
+@import (reference) "../../../less/colors";
+
+@bg-gradient: linear-gradient(10deg, #d3e7f0 1%, #ebeff1 100%);
+
+.mainBg {
+  height: 100%;
+  background-image: url(../../../assets/images/planete_bg.png), @bg-gradient;
+  background-position: 40vw, 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  height: 100%;
+}
+
+.mainInner {
+  font-family: @open-sans, serif;
+  font-weight: normal;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainLogo {
+  margin-bottom: 35px;
+}
+
+.mainText {
+  line-height: 23px;
+  margin-bottom: 35px;
+}
+
+.formToggle {
+  color: #fff;
+  position: relative;
+  font-weight: 600;
+  width: 100%;
+  background-color: #242626;
+  font-size: 14px;
+
+  &:hover {
+    color: #fff;
+    background-color: #242626;
+  }
+}
+
+.mainRight {
+  display: none;
+}
+
+.contactForm {
+  background-image: url(../../../assets/images/form.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: -1;
+  display: flex;
+  align-items: flex-end;
+
+  :global .container {
+    flex: 1;
+  }
+
+  &.open {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  font-size: 20px;
+  right: 30px;
+  top: 30px;
+  z-index: 10;
+}
+
+.formInner {
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media (min-width: 375px) {
+  .contactForm {
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .mainLogo {
+    width: 70%;
+  }
+
+  .mainText {
+    font-size: 16px;
+  }
+
+  .formToggle {
+    width: auto;
+    padding: 0 20px;
+    position: relative;
+    transition: 0.5s;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mainInner {
+    display: flex;
+  }
+
+  .mainLeft {
+    width: 50%;
+    padding-left: 50px;
+  }
+
+  .mainBg {
+    background-image: @bg-gradient;
+    background-position: 0;
+  }
+
+  .mainLogo {
+    width: 100%;
+  }
+
+  .mainRight {
+    display: flex;
+    width: 50%;
+    align-self: stretch;
+    align-items: center;
+  }
+
+  .planetImage {
+    img {
+      width: 60%;
+      margin: auto;
+    }
+  }
+}
+
+@media (min-width: 1680px) {
+  .mainBg {
+    margin: 0 auto;
+    max-width: 1680px;
+  }
+}

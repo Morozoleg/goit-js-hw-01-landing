@@ -1,0 +1,26 @@
+.simplebar-scrollbar:before {
+  border-radius: 0;
+  background-color: black;
+  left: 0;
+  right: 0;
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  top: 0px;
+  bottom: 0px;
+}
+.simplebar-scrollbar.simplebar-visible:before {
+  opacity: 1;
+}
+.simplebar-track.simplebar-vertical {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 7px;
+}
+.simplebar-track {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .simplebar-track {
+    display: block;
+  }
+}

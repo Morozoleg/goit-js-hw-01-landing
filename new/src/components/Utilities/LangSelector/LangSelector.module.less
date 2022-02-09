@@ -1,0 +1,26 @@
+@import "../../../less/colors";
+
+.LangSelector {
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    margin-left: 10px;
+  }
+
+  a {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: @light-grey;
+    transition:  0.3s;
+    
+    &.active,
+    &:active,
+    &:hover {
+      color: #000;
+    }
+  }
+}

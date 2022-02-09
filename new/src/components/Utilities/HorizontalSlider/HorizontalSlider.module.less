@@ -1,0 +1,77 @@
+@import (reference) "../../../less/fonts";
+
+.navigation {
+  height: 35px;
+  position: relative;
+  width: 100%;
+  overflow: scroll;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.list {
+  width: 100%;
+  height: calc(100% - 4px);
+  display: flex;
+  position: absolute;
+  top: 4px;
+  padding-left: 20px;
+  height: fit-content;
+
+  li {
+    height: fit-content;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  button {
+    font-family: @open-sans, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+.active {
+  border-bottom: 2px solid black;
+  padding-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+  .list {
+    padding-left: 60px;
+    button {
+      font-size: 16px;
+    }
+    li {
+      padding-top: 3px;
+    }
+  }
+  .active {
+    padding-bottom: 2px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navigation {
+    border-top: none;
+  }
+  .list {
+    li {
+      &:not(:last-child) {
+        margin-right: 60px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .list {
+    padding-left: 100px;
+  }
+}

@@ -1,0 +1,141 @@
+@import (reference) "../../../less/fonts";
+@bg-gradient: linear-gradient(10deg, #d3e7f0 1%, #ebeff1 100%);
+
+.wrapper {
+  background-image: url(../../../assets/images/letsworktogether.svg),
+    @bg-gradient;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  background-position: right 0% top 10%;
+}
+
+.list {
+  margin-bottom: 25px;
+}
+
+.group {
+  display: flex;
+
+  i {
+    width: 30px;
+  }
+  p,
+  a {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+}
+
+.container {
+  width: 285px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 45px;
+  font-family: @open-sans;
+  font-weight: 800;
+  margin-bottom: 40px;
+  line-height: 45px;
+}
+
+.paragraphHeading {
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-bottom: 3px;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.titleForm {
+  margin-bottom: 25px;
+  font-weight: 800;
+}
+
+.form {
+  margin-bottom: 50px;
+}
+
+.mapWrapper {
+  display: none;
+  height: 250px;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.mapWrapperMobile {
+  height: 250px;
+  overflow-y: hidden;
+  position: relative;
+}
+
+@media (min-width: 470px) {
+  .container {
+    width: 460px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    background: none;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../assets/images/letsworktogether.svg),
+      @bg-gradient;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .insideWrapper {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  .heading {
+    padding-top: 50px;
+    padding-left: 75px;
+  }
+
+  .serviceDepartmentWrapper,
+  .technicalSupportWrapper {
+    display: flex;
+    justify-content: left;
+    padding-top: 20px;
+    border-top: 1px solid black;
+  }
+  .paragraphHeading {
+    border-bottom: none;
+    width: 250px;
+  }
+  .titleForm {
+    border-top: 1px solid black;
+    padding-top: 3px;
+  }
+  .mapWrapper {
+    display: block;
+  }
+  .mapWrapperMobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .insideWrapper {
+    display: flex;
+    margin-bottom: auto;
+  }
+  .infoWrapper {
+    margin-right: 115px;
+  }
+  .form {
+    margin-bottom: 0;
+  }
+  .paragraphHeading {
+    width: 350px;
+  }
+}

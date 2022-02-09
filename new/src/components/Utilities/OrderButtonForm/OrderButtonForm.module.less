@@ -1,0 +1,207 @@
+// form
+@media (min-width: 1920px) {
+    .title {
+      margin-bottom: 60px;
+    }
+  }
+  
+  .keyframes(@name; @arguments) {
+    @-moz-keyframes @name {
+      @arguments();
+    }
+    @-webkit-keyframes @name {
+      @arguments();
+    }
+    @keyframes @name {
+      @arguments();
+    }
+  }
+  .animation(@arguments) {
+    -webkit-animation: @arguments;
+    -moz-animation: @arguments;
+    animation: @arguments;
+  }
+  
+  .slideWrapper {
+    display: block;
+  }
+  
+  .containerForm {
+    width: 290px;
+    margin: 0 auto;
+  }
+  
+  .renderTime {
+    display: none;
+  }
+  
+  .formWrapper {
+    border-top: 0px solid white;
+    //   height: 100%;
+    padding: 45px 0;
+  
+    .btn {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 50px;
+      border: 1px solid black;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+  }
+  
+  .active {
+    display: block;
+    height: auto;
+  }
+  
+  .form {
+    display: none;
+  }
+  
+  .animationWrapper {
+    .btn {
+      .animation(fade-in 0.6s linear);
+      animation-fill-mode: forwards;
+    }
+    .form {
+      display: block;
+      input {
+        &::placeholder {
+          padding-left: 10px;
+          color: rgb(124, 124, 124);
+          text-transform: uppercase;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+  .keyframes(fade-in;{
+        0% {
+          background-color: none;
+          color: black;
+           }
+        100% {
+          background-color: black;
+          color: white
+         }
+        });
+  @media (min-width: 1280px) {
+    .keyframes(fade-in;{
+          0% {
+            transform: scale(1, 1);
+             }
+             20% {
+              transform: scale(1, 0.01)
+             }
+          100% {
+            transform: scale(3, 0.00001);
+            visibility: hidden;
+           }
+          });
+  
+    .containerForm {
+      width: 100%;
+    }
+    .formWrapper {
+      padding: 56px 0;
+      position: relative;
+      .btn {
+        margin-bottom: 0;
+      }
+    }
+    .animationWrapper {
+      .form {
+        visibility: hidden;
+        position: absolute;
+        top: 66px;
+        left: 50%;
+        .animation(fill-in 0.3s linear);
+        animation-delay: 0.6s;
+        animation-fill-mode: forwards;
+        // transform: translate(-50%, 0) scale(1, 0.00001);
+        max-width: fit-content;
+        margin: 0 auto;
+        form {
+          display: flex;
+          button {
+            height: 38.5px;
+            margin-bottom: 0;
+          }
+          input {
+            border: 1px solid #000000;
+            border-right: 0;
+  
+            span {
+              top: 12px;
+            }
+          }
+        }
+        div {
+          display: flex;
+          margin-bottom: 0;
+        }
+        fieldset {
+          position: relative;
+          width: 212px;
+          height: fit-content;
+          margin-bottom: 0;
+          span {
+            left: 0;
+          }
+        }
+      }
+    }
+    .keyframes(fill-in;{
+          0% {
+            color: transparent;
+            visibility: visible;
+            transform: translate(-50%, 0) scale(1, 0.00001)
+             }
+             
+          70% {
+            color: transparent;
+            transform: translate(-50%, 0) scale(1, 1);
+            visibility: visible;
+           }
+           100% {
+             color: black;
+            transform: translate(-50%, 0) scale(1, 1);
+            visibility: visible;
+           }
+          });
+  }
+  
+  @media (min-width: 1440px) {
+    .formWrapper {
+      padding: 63px 0;
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    .keyframes(fade-in;{
+          0% {
+            transform: scale(1, 1);
+             }
+             20% {
+              transform: scale(1, 0.01)
+             }
+          100% {
+            transform: scale(4, 0.00001);
+            visibility: hidden;
+           }
+          });
+    .formWrapper {
+      padding: 86px 0;
+    }
+    .animationWrapper {
+      .form {
+        top: 89px;
+        fieldset {
+          width: 300px;
+        }
+      }
+    }
+  }
+  

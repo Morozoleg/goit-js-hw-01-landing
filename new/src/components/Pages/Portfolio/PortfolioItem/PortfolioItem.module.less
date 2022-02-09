@@ -1,0 +1,49 @@
+.arrow {
+  height: 30px;
+
+  line {
+    stroke: #262727;
+  }
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.link {
+  color: #262727;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.backLink {
+  position: absolute;
+  left: 70px;
+  top: 70px;
+  display: flex;
+  z-index: 3;
+
+  .arrow {
+    margin-right: 20px;
+
+    svg {
+      transform: rotate(-90deg);
+    }
+  }
+}
+  .wrapperport {
+    width: 100%;
+    height: 100%;
+  }
+
+
+@media (max-width: 768px) {
+  .container{
+    width: unset;
+  }
+  .backLink {
+    display: none;
+  }
+}

@@ -1,0 +1,29 @@
+active {
+  background-color: #1a1c1b;
+}
+.navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  li {
+    margin-bottom: 30px;
+  }
+
+  button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #1a1c1b;
+
+    &.active {
+      background-color: #1a1c1b;
+    }
+  }
+}
